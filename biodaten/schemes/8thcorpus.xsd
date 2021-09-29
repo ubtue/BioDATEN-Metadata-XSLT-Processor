@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="unqualified"
+    vc:minVersion="1.1">
+    <xs:element name="root">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element name="record" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="td">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="firstname" type="xs:string"/>
+                                        <xs:element name="surname" type="xs:string"/>
+                                        <xs:element name="party" type="xs:string"/>
+                                        <xs:element name="constituency" type="xs:string"/>
+                                        <xs:element name="declaration" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="date" type="xs:date"/>
+                            <xs:element name="source" type="xs:string"/>
+                            <xs:element name="url" type="xs:anyURI"/>
+                            <xs:element name="statement">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="p" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+                                        <xs:sequence>
+                                            <xs:element name="epistrophe" minOccurs="0"
+                                                maxOccurs="unbounded">
+                                                <xs:complexType>
+                                                  <xs:attribute name="id"/>
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="epanaphora" minOccurs="0"
+                                                maxOccurs="unbounded">
+                                                <xs:complexType>
+                                                  <xs:attribute name="id"/>
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="polyptoton" minOccurs="0"
+                                                maxOccurs="unbounded">
+                                                <xs:complexType>
+                                                  <xs:attribute name="id"/>
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="polysyndeton" minOccurs="0"
+                                                maxOccurs="unbounded">
+                                                <xs:complexType>
+                                                  <xs:attribute name="id"/>
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="quote" minOccurs="0"
+                                                maxOccurs="unbounded"/>
+                                        </xs:sequence>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="recid" type="xs:integer"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
