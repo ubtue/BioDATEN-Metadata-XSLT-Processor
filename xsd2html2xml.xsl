@@ -212,7 +212,7 @@
 			<xsl:element name="span">
 				<xsl:attribute name="data-name">generator</xsl:attribute>
 				<xsl:attribute name="data-content">XSD2HTML2XML v3: https://github.com/MichielCM/xsd2html2xml</xsl:attribute>
-				<xsl:attribute name="data-scheme-file">--|placeholder|--</xsl:attribute>
+				<xsl:attribute name="data-schema-file">--|placeholder|--</xsl:attribute>
 				
 				<!-- if an xml document has been provided, save it as an attribute to the meta element -->
 				<xsl:if test="not($xml-document = '')">
