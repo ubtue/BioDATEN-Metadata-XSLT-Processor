@@ -2,7 +2,10 @@
 <xsl:stylesheet
 	version="3.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:cmd="http://www.clarin.eu/cmd/1"
+	xmlns:cue="http://www.clarin.eu/cmd/cues/1"
+    xmlns:cue_old="http://www.clarin.eu/cmdi/cues/1">
 
 	<!-- handle simple elements -->
 	<!-- handle minOccurs and maxOccurs, calls handle-simple-element for further processing -->
@@ -163,8 +166,35 @@
 				<xsl:value-of select="concat($local-namespace-prefix, @name)" />
 			</xsl:attribute>
 			<xsl:attribute name="data-xsd2html2xml-xpath">
-				<xsl:value-of select="$xpath" />
+				<xsl:attribute name="data-xsd2html2xml-xpath">
+					<xsl:choose>
+						<xsl:when test="$node-type != 'element'">
+							<xsl:value-of select="concat($xpath, '|content')" />
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="$xpath" />
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:attribute>
 			</xsl:attribute>
+
+			<!-- CHANGES JK UB TÜBINGEN: 
+				To create a dependency between a select option and another element in the form
+				we need to add custom data to the option field -->
+
+			<!-- CHANGES JK UB TÜBINGEN: cmd label from the xsd -->
+			<xsl:if test="normalize-space(@cmd:label) != ''">
+				<xsl:attribute name="data-xsd2html2xml-custom-label">
+					<xsl:value-of select="@cmd:label"/>
+				</xsl:attribute>
+			</xsl:if>
+
+			<!-- CHANGES JK UB TÜBINGEN: dependency from the xsd -->
+			<xsl:if test="normalize-space(@cue:depends_on) != ''">
+				<xsl:attribute name="data-xsd2html2xml-custom-dependency">
+					<xsl:value-of select="@cue:depends_on"/>
+				</xsl:attribute>
+			</xsl:if>
 			
 			<!-- add custom appinfo data -->
 			<xsl:for-each select="xs:annotation/xs:appinfo/*">

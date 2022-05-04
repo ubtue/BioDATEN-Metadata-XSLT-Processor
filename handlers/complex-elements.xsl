@@ -199,7 +199,14 @@
 							<xsl:value-of select="concat($local-namespace-prefix, @name)" />
 						</xsl:attribute>
 						<xsl:attribute name="data-xsd2html2xml-xpath">
-							<xsl:value-of select="$xpath" />
+							<xsl:choose>
+								<xsl:when test="local-name() != 'element'">
+									<xsl:value-of select="concat($xpath, '|content')" />
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:value-of select="$xpath" />
+								</xsl:otherwise>
+							</xsl:choose>
 						</xsl:attribute>
 					</xsl:if>
 					
@@ -223,7 +230,64 @@
 						</xsl:call-template>
 					</xsl:variable>
 					
+					<!-- CHANGES JK UB TUE: We want to have the attributes parsed before other elements -->
 					<!-- let child elements be handled by their own templates -->
+					<xsl:apply-templates select="xs:complexType/xs:attribute
+						|xs:complexType/xs:attributeGroup
+						|xs:complexType/xs:complexContent/xs:restriction/xs:attribute
+						|xs:complexType/xs:complexContent/xs:restriction/xs:attributeGroup
+						|xs:complexType/xs:simpleContent/xs:restriction/xs:attribute
+						|xs:complexType/xs:simpleContent/xs:restriction/xs:attributeGroup
+						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:attribute
+						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:attributeGroup
+						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:complexContent/xs:restriction/xs:attribute
+						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:complexContent/xs:restriction/xs:attributeGroup
+						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:simpleContent/xs:restriction/xs:attribute
+						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:simpleContent/xs:restriction/xs:attributeGroup
+						|$namespace-documents//xs:group[@name=$ref-suffix]/*">
+						<xsl:with-param name="root-document" select="$root-document" />
+						<xsl:with-param name="root-path" select="$root-path" />
+						<xsl:with-param name="root-namespaces" select="$root-namespaces" />
+						
+						<xsl:with-param name="namespace-documents" select="$namespace-documents" />
+						<xsl:with-param name="namespace-prefix" select="$namespace-prefix" />
+						
+						<xsl:with-param name="disabled" select="$disabled" />
+						<xsl:with-param name="xpath" select="$xpath" />
+					</xsl:apply-templates>
+					
+					<!-- let child elements be handled by their own templates -->
+					<xsl:apply-templates select="xs:complexType/xs:sequence
+						|xs:complexType/xs:all
+						|xs:complexType/xs:choice
+						|xs:complexType/xs:complexContent/xs:restriction/xs:sequence
+						|xs:complexType/xs:complexContent/xs:restriction/xs:all
+						|xs:complexType/xs:complexContent/xs:restriction/xs:choice
+						|xs:complexType/xs:simpleContent/xs:restriction/xs:anyAttribute
+						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:sequence
+						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:all
+						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:choice
+						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:anyAttribute
+						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:complexContent/xs:restriction/xs:sequence
+						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:complexContent/xs:restriction/xs:all
+						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:complexContent/xs:restriction/xs:choice
+						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:simpleContent/xs:restriction/xs:anyAttribute
+						|$namespace-documents//xs:group[@name=$ref-suffix]/*">
+						<xsl:with-param name="root-document" select="$root-document" />
+						<xsl:with-param name="root-path" select="$root-path" />
+						<xsl:with-param name="root-namespaces" select="$root-namespaces" />
+						
+						<xsl:with-param name="namespace-documents" select="$namespace-documents" />
+						<xsl:with-param name="namespace-prefix" select="$namespace-prefix" />
+						
+						<xsl:with-param name="disabled" select="$disabled" />
+						<xsl:with-param name="xpath" select="$xpath" />
+					</xsl:apply-templates>
+
+
+					<!-- CHANGES JK UB TUE: This is the original order. Save as a backup-->
+					<!-- let child elements be handled by their own templates -->
+					<!--
 					<xsl:apply-templates select="xs:complexType/xs:sequence
 						|xs:complexType/xs:all
 						|xs:complexType/xs:choice
@@ -262,6 +326,7 @@
 						<xsl:with-param name="disabled" select="$disabled" />
 						<xsl:with-param name="xpath" select="$xpath" />
 					</xsl:apply-templates>
+					-->
 					
 					<!-- add simple element if the element allows simpleContent -->
 					<xsl:if test="$simple = 'true'">

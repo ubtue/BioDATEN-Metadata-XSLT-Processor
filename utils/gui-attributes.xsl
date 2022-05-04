@@ -2,7 +2,10 @@
 <xsl:stylesheet
 	version="3.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:cmd="http://www.clarin.eu/cmd/1"
+	xmlns:cue="http://www.clarin.eu/cmd/cues/1"
+    xmlns:cue_old="http://www.clarin.eu/cmdi/cues/1">
 	
 	<!-- applies templates recursively, overwriting lower-level options -->
 	<xsl:template name="set-type-specifics">
@@ -693,6 +696,25 @@
 			<xsl:attribute name="value">
 				<xsl:value-of select="@value"/>
 			</xsl:attribute>
+
+			<!-- CHANGES JK UB TÜBINGEN: 
+				To create a dependency between a select option and another element in the form
+				we need to add custom data to the option field -->
+
+			<!-- CHANGES JK UB TÜBINGEN: cmd label from the xsd -->
+			<xsl:if test="normalize-space(@cmd:label) != ''">
+				<xsl:attribute name="data-xsd2html2xml-custom-label">
+					<xsl:value-of select="@cmd:label"/>
+				</xsl:attribute>
+			</xsl:if>
+
+			<!-- CHANGES JK UB TÜBINGEN: dependency from the xsd -->
+			<xsl:if test="normalize-space(@cue:depends_on) != ''">
+				<xsl:attribute name="data-xsd2html2xml-custom-dependency">
+					<xsl:value-of select="@cue:depends_on"/>
+				</xsl:attribute>
+			</xsl:if>
+			
 			
 			<xsl:value-of select="$description"/>
 		</xsl:element>
