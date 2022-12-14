@@ -709,9 +709,23 @@
 			</xsl:if>
 
 			<!-- CHANGES JK UB TÜBINGEN: dependency from the xsd -->
-			<xsl:if test="normalize-space(@cue:depends_on) != ''">
+			<xsl:if test="normalize-space(@cue:dependsOn_valueSelection) != ''">
 				<xsl:attribute name="data-xsd2html2xml-custom-dependency">
-					<xsl:value-of select="@cue:depends_on"/>
+					<xsl:value-of select="@cue:dependsOn_valueSelection"/>
+				</xsl:attribute>
+			</xsl:if>
+
+			<!-- CHANGES JK UB TÜBINGEN: autoincrement from the xsd -->
+			<xsl:if test="normalize-space(@cue:dependsOn_valueSelection) != ''">
+				<xsl:attribute name="data-xsd2html2xml-custom-autoincrement">
+					<xsl:value-of select="@cue:dependsOn_valueSelection"/>
+				</xsl:attribute>
+			</xsl:if>
+
+			<!-- CHANGES JK UB TÜBINGEN: autoincrement source from the xsd -->
+			<xsl:if test="normalize-space(@cue:dependsOn_autogenerateSource) != ''">
+				<xsl:attribute name="data-xsd2html2xml-custom-autoincrement-source">
+					<xsl:value-of select="@cue:dependsOn_autogenerateSource"/>
 				</xsl:attribute>
 			</xsl:if>
 			

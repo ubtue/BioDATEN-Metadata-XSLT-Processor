@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cmd="http://www.clarin.eu/cmd/1" xmlns:cue="http://www.clarin.eu/cmd/cues/1" xmlns:cue_old="http://www.clarin.eu/cmdi/cues/1" xmlns:cmdp="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1659015263808" targetNamespace="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1659015263808" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo xmlns:ann="http://www.clarin.eu">
+      <cmd:Header>
+        <cmd:ID>clarin.eu:cr1:p_1659015263808</cmd:ID>
+        <cmd:Name>BiodatenMinimal-v0.9</cmd:Name>
+        <cmd:Description>provides a minimal set of metadata for research data in bioinformatics</cmd:Description>
+        <cmd:Status>development</cmd:Status>
+        <cmd:DerivedFrom>clarin.eu:cr1:p_1610707853515</cmd:DerivedFrom>
+      </cmd:Header>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd" />
+  <xs:import namespace="http://www.clarin.eu/cmd/1" schemaLocation="https://infra.clarin.eu/CMDI/1.x/xsd/cmd-envelop.xsd" />
+  <xs:simpleType name="simpletype-typeOfMethod-clarin.eu.cr1.c_1659015263820">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Sequencing method" cmd:label=" " />
+      <xs:enumeration value="Analytical method" cmd:label=" " />
+      <xs:enumeration value="Protein-protein interaction" cmd:label="" />
+      <xs:enumeration value="Protein-DNA/RNA interaction" cmd:label="" />
+      <xs:enumeration value="Protein-lipid interaction" />
+      <xs:enumeration value="Particle analysis method" />
+      <xs:enumeration value="Bioinformatic method" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="complextype-typeOfMethod-clarin.eu.cr1.c_1659015263820">
+    <xs:simpleContent>
+      <xs:extension base="cmdp:simpletype-typeOfMethod-clarin.eu.cr1.c_1659015263820" />
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="simpletype-sequencingMethod-clarin.eu.cr1.c_1659015263820">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Maxam–Gilbert sequencing" cmd:label=" " />
+      <xs:enumeration value="Chain termination (Sanger sequencing)" cmd:label=" " />
+      <xs:enumeration value="Pyrosequencing" cmd:label=" " />
+      <xs:enumeration value="Ion semiconductor sequencing" cmd:label=" " />
+      <xs:enumeration value="Single-molecule real-time sequencing" cmd:label=" " />
+      <xs:enumeration value="Sequencing by synthesis" cmd:label=" " />
+      <xs:enumeration value="Combinatorial probe anchor synthesis" cmd:label=" " />
+      <xs:enumeration value="Sequencing by ligation" cmd:label=" " />
+      <xs:enumeration value="Nanopore Sequencing" cmd:label=" " />
+      <xs:enumeration value="GenapSys Sequencing" cmd:label=" " />
+      <xs:enumeration value="Massively parallel signature sequencing (MPSS)" cmd:label="" />
+      <xs:enumeration value="Polony sequencing" />
+      <xs:enumeration value="DNA nanoball sequencing" />
+      <xs:enumeration value="Helicos single molecule fluorescent sequencing" />
+      <xs:enumeration value="Microfluidic Systems" />
+      <xs:enumeration value="Other:" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="complextype-sequencingMethod-clarin.eu.cr1.c_1659015263820">
+    <xs:simpleContent>
+      <xs:extension base="cmdp:simpletype-sequencingMethod-clarin.eu.cr1.c_1659015263820" />
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="simpletype-analyticalMethod-clarin.eu.cr1.c_1659015263820">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="High performance liquid chromatography (HPLC)" cmd:label=" " />
+      <xs:enumeration value="High performance liquid chromatography-mass spectrometry (HPLC-MS)" cmd:label=" " />
+      <xs:enumeration value="High performance liquid chromatography-tandem mass spectrometry (HPLC-MS/MS)" cmd:label=" " />
+      <xs:enumeration value="Gas chromatography (GC)" cmd:label=" " />
+      <xs:enumeration value="Gas chromatography-mass spectrometry (GC-MS)" cmd:label="" />
+      <xs:enumeration value="Gas chromatography-tandem mass spectrometry (GC-MS/MS)" />
+      <xs:enumeration value="Capillary electrophoresis (CE)" />
+      <xs:enumeration value="Capillary electrophoresis-mass spectrometry (CE-MS)" />
+      <xs:enumeration value="Capillary electrophoresis-tandem mass spectrometry (CE-MS/MS)" />
+      <xs:enumeration value="Nuclear magnetic resonance spectroscopy" />
+      <xs:enumeration value="Matrix-assisted laser desorption/ionization-mass spectrometry (MALDI-MS)" />
+      <xs:enumeration value="Enzyme-linked immunosorbent assay (ELISA)" />
+      <xs:enumeration value="Immuno-electron microscopy" />
+      <xs:enumeration value="Western blot" />
+      <xs:enumeration value="Southern blot" />
+      <xs:enumeration value="Bioassay" />
+      <xs:enumeration value="Other:" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="complextype-analyticalMethod-clarin.eu.cr1.c_1659015263820">
+    <xs:simpleContent>
+      <xs:extension base="cmdp:simpletype-analyticalMethod-clarin.eu.cr1.c_1659015263820" />
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="simpletype-particleAnalysisMethod-clarin.eu.cr1.c_1659015263820">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Asymmetric flow field flow fractionation" cmd:label=" " />
+      <xs:enumeration value="Atomic force microscopy" cmd:label=" " />
+      <xs:enumeration value="Dynamic light scattering" cmd:label=" " />
+      <xs:enumeration value="Electron microscopy" cmd:label=" " />
+      <xs:enumeration value="High resolution flow cytometry" cmd:label=" " />
+      <xs:enumeration value="Nanoparticle tracking analysis" cmd:label=" " />
+      <xs:enumeration value="Tunable resistive pulse sensing" />
+      <xs:enumeration value="Flow cytometric cell sorting" />
+      <xs:enumeration value="Other:" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="complextype-particleAnalysisMethod-clarin.eu.cr1.c_1659015263820">
+    <xs:simpleContent>
+      <xs:extension base="cmdp:simpletype-particleAnalysisMethod-clarin.eu.cr1.c_1659015263820" />
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="simpletype-protein-DNA-RNA-Interaction-clarin.eu.cr1.c_1659015263820">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Yeast two-hybrid systemmetagenomics" />
+      <xs:enumeration value="Electrophoretic mobility shift assay" cmd:label="" />
+      <xs:enumeration value="Thermal shift assay" />
+      <xs:enumeration value="Pulldown-assay" />
+      <xs:enumeration value="Isothermal titration calorimetry" />
+      <xs:enumeration value="Ligand binding assay" />
+      <xs:enumeration value="Electron microscope" />
+      <xs:enumeration value="DNase footprinting assay" />
+      <xs:enumeration value="Surface plasmon resonance" />
+      <xs:enumeration value="DNA adenine methyltransferase identification" />
+      <xs:enumeration value="Chromatin immunoprecipitation (ChIP)" />
+      <xs:enumeration value="Chromatin immunoprecipitation combined with DNA microarray (ChIP-on-chip)" />
+      <xs:enumeration value="Chromatin immunoprecipitation DNA-sequencing (ChIP-Seq)" />
+      <xs:enumeration value="RNA immunoprecipitation combined with microarray (RIP-chip)" />
+      <xs:enumeration value="Individual-nucleotide resolution cross-linking and immunoprecipitation (iCLIP)" />
+      <xs:enumeration value="Cross-linking immunoprecipitation-high-throughput sequencing (CLIP-Seq)" />
+      <xs:enumeration value="Photoactivatable-ribonucleoside-enhanced crosslinking and immunoprecipitation (PAR-CLIP)" />
+      <xs:enumeration value="Other:" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="complextype-protein-DNA-RNA-Interaction-clarin.eu.cr1.c_1659015263820">
+    <xs:simpleContent>
+      <xs:extension base="cmdp:simpletype-protein-DNA-RNA-Interaction-clarin.eu.cr1.c_1659015263820" />
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="simpletype-protein-protein-interaction-clarin.eu.cr1.c_1659015263820">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Yeast two-hybrid system" />
+      <xs:enumeration value="Molecular display" />
+      <xs:enumeration value="Resonance energy transfer" />
+      <xs:enumeration value="Fluorescence correlation spectroscopy" />
+      <xs:enumeration value="Scintillation proximity assay" />
+      <xs:enumeration value="Surface plasmon resonance" />
+      <xs:enumeration value="Bio-layer interferometry" />
+      <xs:enumeration value="Ligand binding assay" />
+      <xs:enumeration value="Protein tag" />
+      <xs:enumeration value="Label-transfer" />
+      <xs:enumeration value="Pulldown-assay" />
+      <xs:enumeration value="Quantitative immunoprecipitation combined with knock-down" />
+      <xs:enumeration value="Proximity Ligation Assay" />
+      <xs:enumeration value="Protein-fragment complementation assay" />
+      <xs:enumeration value="Thermal shift assay" />
+      <xs:enumeration value="Isothermal titration calorimetry" />
+      <xs:enumeration value="Other:" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="complextype-protein-protein-interaction-clarin.eu.cr1.c_1659015263820">
+    <xs:simpleContent>
+      <xs:extension base="cmdp:simpletype-protein-protein-interaction-clarin.eu.cr1.c_1659015263820" />
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="simpletype-protein-lipid-interaction-clarin.eu.cr1.c_1659015263820">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Thermal shift assay" />
+      <xs:enumeration value="Isothermal titration calorimetry" />
+      <xs:enumeration value="Electron paramagnetic resonance" />
+      <xs:enumeration value="Dual-polarization interferometry" />
+      <xs:enumeration value="Fluorescence microscopy" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="complextype-protein-lipid-interaction-clarin.eu.cr1.c_1659015263820">
+    <xs:simpleContent>
+      <xs:extension base="cmdp:simpletype-protein-lipid-interaction-clarin.eu.cr1.c_1659015263820" />
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="simpletype-bioinformaticMethod-clarin.eu.cr1.c_1659015263820">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Basic local alignment search tool (BLAST)" />
+      <xs:enumeration value="Clustering algorithm" />
+      <xs:enumeration value="Classification algorithm" />
+      <xs:enumeration value="Artificial neural networks (ANN)" />
+      <xs:enumeration value="Support vector machines (SVM)" />
+      <xs:enumeration value="Differential expression analysis" />
+      <xs:enumeration value="Gene regulatory network modeling" />
+      <xs:enumeration value="Metabolic pathway modeling" />
+      <xs:enumeration value="Signaling pathway modeling" />
+      <xs:enumeration value="Pfam" />
+      <xs:enumeration value="Other:" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="complextype-bioinformaticMethod-clarin.eu.cr1.c_1659015263820">
+    <xs:simpleContent>
+      <xs:extension base="cmdp:simpletype-bioinformaticMethod-clarin.eu.cr1.c_1659015263820" />
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="simpletype-typeStudiedObject-clarin.eu.cr1.c_1659015263811">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Organism (i.e., eukaryota, bacteria, archaea)" />
+      <xs:enumeration value="Non-organism (e.g., virus, water, environmental RNA)" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="complextype-typeStudiedObject-clarin.eu.cr1.c_1659015263811">
+    <xs:simpleContent>
+      <xs:extension base="cmdp:simpletype-typeStudiedObject-clarin.eu.cr1.c_1659015263811" />
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="simpletype-environmentalPackage-clarin.eu.cr1.c_1659015263812">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="air" cmd:label="" />
+      <xs:enumeration value="built environment" cmd:label="" />
+      <xs:enumeration value="host-associated" cmd:label="" />
+      <xs:enumeration value="human-associated" cmd:label="" />
+      <xs:enumeration value="human-gut" cmd:label="" />
+      <xs:enumeration value="human-oral" cmd:label="" />
+      <xs:enumeration value="human-skin" cmd:label="" />
+      <xs:enumeration value="human-vaginal" cmd:label="" />
+      <xs:enumeration value="hydrocarbon resources-cores" cmd:label="" />
+      <xs:enumeration value="hydrocarbon resources-fluids/swabs" cmd:label="" />
+      <xs:enumeration value="microbial mat/biofilm" cmd:label="" />
+      <xs:enumeration value="miscellaneous natural or artificial environment" cmd:label="" />
+      <xs:enumeration value="plant-associated" cmd:label="" />
+      <xs:enumeration value="sediment" cmd:label="" />
+      <xs:enumeration value="soil" cmd:label="" />
+      <xs:enumeration value="wastewater/sludge" cmd:label="" />
+      <xs:enumeration value="water" cmd:label="" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="complextype-environmentalPackage-clarin.eu.cr1.c_1659015263812">
+    <xs:simpleContent>
+      <xs:extension base="cmdp:simpletype-environmentalPackage-clarin.eu.cr1.c_1659015263812" />
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="simpletype-relationType-clarin.eu.cr1.c_1610707853514">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Aggregation" />
+      <xs:enumeration value="Selection" />
+      <xs:enumeration value="Supplementary Material" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="complextype-relationType-clarin.eu.cr1.c_1610707853514">
+    <xs:simpleContent>
+      <xs:extension base="cmdp:simpletype-relationType-clarin.eu.cr1.c_1610707853514" />
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="BiodatenMinimal-v0.9">
+    <xs:annotation />
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Method-v0.9" minOccurs="1" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>Measurement conditions; methods</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="methodUniqueIdentifier" minOccurs="1" maxOccurs="1" type="xs:string" cue:dependsOn_autogeneration="true">
+                <xs:annotation>
+                  <xs:documentation>the method's unique identifier (autogenerated)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="methodDescription" minOccurs="0" maxOccurs="1" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation>description of method in a few words. </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="samplePreparationOrProcessing" minOccurs="1" maxOccurs="1" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation>specify how the sample was prepared or processed, e.g., extraction, purification, concentration, derivation; use controlled vocabulary at https://ontobee.org/ontology/OBI?iri=http://purl.obolibrary.org/obo/OBI_0000094</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="typeOfMethod" minOccurs="1" maxOccurs="1" type="cmdp:simpletype-typeOfMethod-clarin.eu.cr1.c_1659015263820" cue:dependsOn_valueSelection="'Sequencing method'--sequencingMethod;'Analytical method'--analyticalMethod;'Protein-protein interaction'--protein-protein-interaction;'Protein-DNA/RNA interaction'--protein-DNA-RNA-Interaction;'Protein-lipid interaction'--protein-lipid-interaction;'Particle analysis method'--particleAnalysisMethod;'Bioinformatic method'--bioinformaticMethod;'Other'--otherMethod">
+                <xs:annotation>
+                  <xs:documentation>class of method used</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="sequencingMethod" minOccurs="0" maxOccurs="1" type="cmdp:simpletype-sequencingMethod-clarin.eu.cr1.c_1659015263820">
+                <xs:annotation>
+                  <xs:documentation>name of the sequencing method used</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="analyticalMethod" minOccurs="0" maxOccurs="1" type="cmdp:simpletype-analyticalMethod-clarin.eu.cr1.c_1659015263820">
+                <xs:annotation>
+                  <xs:documentation>name of the analytical method used</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="particleAnalysisMethod" minOccurs="0" maxOccurs="1" type="cmdp:simpletype-particleAnalysisMethod-clarin.eu.cr1.c_1659015263820" cue:DisplayPriority="1">
+                <xs:annotation>
+                  <xs:documentation>name of the particle analysis method used</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="protein-DNA-RNA-Interaction" minOccurs="1" maxOccurs="1" type="cmdp:simpletype-protein-DNA-RNA-Interaction-clarin.eu.cr1.c_1659015263820">
+                <xs:annotation>
+                  <xs:documentation>type of the Protein-DNA/RNA Interaction method used</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="protein-protein-interaction" minOccurs="0" maxOccurs="1" type="cmdp:simpletype-protein-protein-interaction-clarin.eu.cr1.c_1659015263820">
+                <xs:annotation />
+              </xs:element>
+              <xs:element name="protein-lipid-interaction" minOccurs="0" maxOccurs="1" type="cmdp:simpletype-protein-lipid-interaction-clarin.eu.cr1.c_1659015263820">
+                <xs:annotation />
+              </xs:element>
+              <xs:element name="bioinformaticMethod" minOccurs="1" maxOccurs="1" type="cmdp:simpletype-bioinformaticMethod-clarin.eu.cr1.c_1659015263820">
+                <xs:annotation />
+              </xs:element>
+              <xs:element name="URLMethodDescription" cmd:ConceptLink="https://schema.org/MedicalScholarlyArticle" minOccurs="0" maxOccurs="unbounded" type="xs:anyURI">
+                <xs:annotation>
+                  <xs:documentation>link to scientific paper where method has been described (use persistent identifiers such as DOIs, if possible)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="StudiedObject-v0.9" cmd:ConceptLink="https://bioschemas.org/types/Sample" minOccurs="1" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>Sample: a material entity that is representative of a whole, see also http://purl.jp/bio/4/id/200906034237481745</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="studiedObjectIdentifier" cmd:ConceptLink="https://schema.org/identifier" minOccurs="1" maxOccurs="1" type="xs:string" cue:dependsOn_autogeneration="true">
+                <xs:annotation>
+                  <xs:documentation>unique identifier of the studied object (autogenerated)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="descriptionStudiedObject" minOccurs="1" maxOccurs="1" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation>description of studied object</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="typeStudiedObject" minOccurs="1" maxOccurs="1" type="cmdp:simpletype-typeStudiedObject-clarin.eu.cr1.c_1659015263811">
+                <xs:annotation>
+                  <xs:documentation>name type of studied object</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="organism" cmd:ConceptLink="http://purl.jp/bio/4/id/200906079942882108" minOccurs="0" maxOccurs="1" type="xs:anyURI" cue:DisplayPriority="1">
+                <xs:annotation>
+                  <xs:documentation>name of the organism used in the sample; use a controlled vocabulary by make reference to an ontology such as http://purl.obolibrary.org/obo/OBI_0100026</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="cellType" cmd:ConceptLink="http://purl.jp/bio/4/id/201106077286713294" minOccurs="0" maxOccurs="1" type="xs:anyURI" cue:DisplayPriority="1">
+                <xs:annotation>
+                  <xs:documentation>name of the cell type used in the sample. Use controlled vocabulary such as https://bioportal.bioontology.org/ontologies/CL or http://purl.obolibrary.org/obo/CL_0000000</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="additionalInformation" minOccurs="1" maxOccurs="1" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation>Add free text (e.g., arabidopsis seedling, leaf, root etc.)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="nameMaterial" cmd:ConceptLink="http://purl.jp/bio/4/id/200906048950987544" minOccurs="0" maxOccurs="1" type="xs:anyURI" cue:DisplayPriority="1">
+                <xs:annotation>
+                  <xs:documentation>name of the material (structure, substance, device) removed from a source (patient, donor, physical location, product) OR a material entity that has the specimen role. Please use controlled vocabulary  such as http://purl.obolibrary.org/obo/OBI_0100051</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="measurementTarget" minOccurs="0" maxOccurs="1" type="xs:anyURI" cue:DisplayPriority="1">
+                <xs:annotation>
+                  <xs:documentation>measurement target (e.g., protein, gene, compound)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="sampleBackground" minOccurs="1" maxOccurs="1" type="xs:string" cue:DisplayPriority="1">
+                <xs:annotation>
+                  <xs:documentation>description of the sample</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Environment-v0.9" cmd:ConceptLink="http://dx.doi.org/10.1186/2041-1480-4-43" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                  <xs:documentation>Environment: a system which has the disposition to environ one or more material entities.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="environmentalPackage" cmd:ConceptLink="http://gensc.org/ns/mixs/env_package" minOccurs="1" maxOccurs="1" type="cmdp:simpletype-environmentalPackage-clarin.eu.cr1.c_1659015263812" cue:DisplayPriority="1">
+                      <xs:annotation>
+                        <xs:documentation>Environment in which the sample was taken</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="broadScaleEnvironmentalContext" cmd:ConceptLink="http://purl.obolibrary.org/obo/ENVO_00000428" minOccurs="1" maxOccurs="1" type="xs:anyURI">
+                      <xs:annotation>
+                        <xs:documentation>Broad ecological context your sample or specimen came from.  Please use the vocabulary defined in http://purl.obolibrary.org/obo/ENVO_00000428</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="environmentalMedium" cmd:ConceptLink="http://purhttp://purl.obolibrary.org/obo/ENVO_00010483" minOccurs="1" maxOccurs="1" type="xs:anyURI">
+                      <xs:annotation>
+                        <xs:documentation>Environmental material or materials immediately surrounded your sample or specimen prior to sampling. Please use the vocabulary defined in  http://purl.obolibrary.org/obo/ENVO_00010483</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Run-v0.9" minOccurs="1" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>Please link runs/files to their specific results. Each file needs to be classified as either the result of a run, the result of work on (a)nother file(s) or s supplementary material.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="methodID" cmd:ConceptLink="https://schema.org/identifier" minOccurs="1" maxOccurs="1" type="xs:string" cue:DisplayPriority="1" cue:dependsOn_autogeneration="true">
+                <xs:annotation>
+                  <xs:documentation>reference to the method description (please choose id from pulldown menu)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="studiedObjectId" cmd:ConceptLink="https://schema.org/identifier" minOccurs="1" maxOccurs="1" type="xs:string" cue:DisplayPriority="1">
+                <xs:annotation>
+                  <xs:documentation>reference to the description of the studied object (please choose id from pulldown menu)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Data-v0.9" minOccurs="1" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>data gathered in an experiment</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="relationType" minOccurs="0" maxOccurs="unbounded" type="cmdp:simpletype-relationType-clarin.eu.cr1.c_1610707853514" cue:DisplayPriority="1">
+                <xs:annotation>
+                  <xs:documentation>description of the relation between two (or more) files</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="dataReference_1" minOccurs="1" maxOccurs="1" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation>reference to a file (autogenerated from file metadata)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="dataReference_2" minOccurs="1" maxOccurs="1" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation>reference to a file (autogenerated from file metadata)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
