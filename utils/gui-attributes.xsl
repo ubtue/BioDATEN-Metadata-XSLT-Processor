@@ -728,7 +728,13 @@
 					<xsl:value-of select="@cue:dependsOn_autogenerateSource"/>
 				</xsl:attribute>
 			</xsl:if>
-			
+
+			<!-- CHANGES JK UB TÜBINGEN: placeholder from the xsd -->
+			<xsl:if test="normalize-space(@cue:display_placeholder) != ''">
+				<xsl:attribute name="data-xsd2html2xml-custom-placeholder">
+					<xsl:value-of select="@cue:display_placeholder"/>
+				</xsl:attribute>
+			</xsl:if>			
 			
 			<xsl:value-of select="$description"/>
 		</xsl:element>
