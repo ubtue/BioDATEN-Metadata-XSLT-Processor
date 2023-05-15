@@ -68,10 +68,10 @@
                         </xs:simpleContent>
                       </xs:complexType>
                     </xs:element>
-                    <xs:element name="givenName" minOccurs="0" />
-                    <xs:element name="familyName" minOccurs="0" />
-                    <xs:element name="nameIdentifier" xsi:type="nameIdentifier" minOccurs="0" maxOccurs="unbounded" />
-                    <xs:element name="affiliation" xsi:type="affiliation" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="givenName" minOccurs="0" type="xs:string" />
+                    <xs:element name="familyName" minOccurs="0" type="xs:string" />
+                    <xs:element name="nameIdentifier" type="nameIdentifier" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="affiliation" type="affiliation" minOccurs="0" maxOccurs="unbounded" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -176,10 +176,10 @@
                         </xs:simpleContent>
                       </xs:complexType>
                     </xs:element>
-                    <xs:element name="givenName" minOccurs="0" />
-                    <xs:element name="familyName" minOccurs="0" />
-                    <xs:element name="nameIdentifier" xsi:type="nameIdentifier" minOccurs="0" maxOccurs="unbounded" />
-                    <xs:element name="affiliation" xsi:type="affiliation" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="givenName" minOccurs="0" type="xs:string" />
+                    <xs:element name="familyName" minOccurs="0" type="xs:string" />
+                    <xs:element name="nameIdentifier" type="nameIdentifier" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="affiliation" type="affiliation" minOccurs="0" maxOccurs="unbounded" />
                   </xs:sequence>
                   <xs:attribute name="contributorType" type="contributorType" use="required" />
                 </xs:complexType>
@@ -306,24 +306,25 @@ Use the complete title of a license and include version information if applicabl
           </xs:complexType>
         </xs:element>
         <xs:element name="descriptions" minOccurs="0">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="description" minOccurs="0" maxOccurs="unbounded">
-                <xs:annotation>
-                  <xs:documentation>All additional information that does not fit in any of the other categories. May be used for technical information. It is a best practice to supply a description.</xs:documentation>
-                </xs:annotation>
-                <xs:complexType mixed="true">
-                  <xs:choice>
-                    <xs:element name="br" minOccurs="0" maxOccurs="unbounded">
-                      <xs:complexType />
+            <xs:complexType>
+                <xs:sequence>
+                    <xs:element name="description" minOccurs="0" maxOccurs="unbounded">
+                        <xs:annotation>
+                            <xs:documentation>
+        All additional information that does not fit in any of the other categories. May be used for technical information. It is a best practice to supply a description.
+                  </xs:documentation>
+                        </xs:annotation>
+                        <xs:complexType>
+                          <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                              <xs:attribute name="descriptionType" type="descriptionType" use="required"/>
+                              <xs:attribute ref="xml:lang"/>
+                            </xs:extension>
+                          </xs:simpleContent>
+                        </xs:complexType>
                     </xs:element>
-                  </xs:choice>
-                  <xs:attribute name="descriptionType" type="descriptionType" use="required" />
-                  <xs:attribute ref="xml:lang" />
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
+                </xs:sequence>
+            </xs:complexType>
         </xs:element>
         <xs:element name="geoLocations" minOccurs="0">
           <xs:complexType>
@@ -405,7 +406,7 @@ Use the complete title of a license and include version information if applicabl
                         </xs:simpleContent>
                       </xs:complexType>
                     </xs:element>
-                    <xs:element name="awardTitle" minOccurs="0">
+                    <xs:element name="awardTitle" minOccurs="0" type="xs:string">
                       <xs:annotation>
                         <xs:documentation>The human readable title of the award (grant).</xs:documentation>
                       </xs:annotation>
@@ -477,8 +478,8 @@ Use the complete title of a license and include version information if applicabl
                                     </xs:simpleContent>
                                   </xs:complexType>
                                 </xs:element>
-                                <xs:element name="givenName" minOccurs="0" />
-                                <xs:element name="familyName" minOccurs="0" />
+                                <xs:element name="givenName" minOccurs="0" type="xs:string" />
+                                <xs:element name="familyName" minOccurs="0" type="xs:string" />
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
@@ -575,8 +576,8 @@ Use the complete title of a license and include version information if applicabl
                                     </xs:simpleContent>
                                   </xs:complexType>
                                 </xs:element>
-                                <xs:element name="givenName" minOccurs="0" />
-                                <xs:element name="familyName" minOccurs="0" />
+                                <xs:element name="givenName" minOccurs="0" type="xs:string" />
+                                <xs:element name="familyName" minOccurs="0" type="xs:string" />
                               </xs:sequence>
                               <xs:attribute name="contributorType" type="contributorType" use="required">
                                 <xs:annotation>
