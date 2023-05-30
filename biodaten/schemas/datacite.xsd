@@ -62,7 +62,7 @@
                       <xs:complexType>
                         <xs:simpleContent>
                           <xs:extension base="xs:string">
-                            <xs:attribute name="nameType" type="nameType" use="optional" />
+                            <xs:attribute name="nameType" type="nameType" use="required" />
                             <xs:attribute ref="xml:lang" />
                           </xs:extension>
                         </xs:simpleContent>
@@ -170,7 +170,7 @@
                       <xs:complexType>
                         <xs:simpleContent>
                           <xs:extension base="nonemptycontentStringType">
-                            <xs:attribute name="nameType" type="nameType" use="optional" />
+                            <xs:attribute name="nameType" type="nameType" use="required" />
                             <xs:attribute ref="xml:lang" />
                           </xs:extension>
                         </xs:simpleContent>
@@ -472,7 +472,7 @@ Use the complete title of a license and include version information if applicabl
                                   <xs:complexType>
                                     <xs:simpleContent>
                                       <xs:extension base="xs:string">
-                                        <xs:attribute name="nameType" type="nameType" use="optional" />
+                                        <xs:attribute name="nameType" type="nameType" use="required" />
                                         <xs:attribute ref="xml:lang" />
                                       </xs:extension>
                                     </xs:simpleContent>
@@ -570,7 +570,7 @@ Use the complete title of a license and include version information if applicabl
                                   <xs:complexType>
                                     <xs:simpleContent>
                                       <xs:extension base="xs:string">
-                                        <xs:attribute name="nameType" type="nameType" use="optional" />
+                                        <xs:attribute name="nameType" type="nameType" use="required" />
                                         <xs:attribute ref="xml:lang" />
                                       </xs:extension>
                                     </xs:simpleContent>
